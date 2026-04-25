@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix clone</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="flix.css">
+    <script src="flix.js" defer></script>
+</head>
+<body>
+    <!-- header start -->
+    <header id="header" class="">
+        <div class="header-cont container">
+            <div class="left-cont">
+                <img decoding="async" class="header-brand" src="https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png?w=684&h=456" alt="">
+                <ul class="main-nav">
+                    <li class="nav-item active">Home</li>
+                    <li class="nav-item">Tv Shows</li>
+                    <li class="nav-item">Movies</li>
+                    <li class="nav-item">News & Popular</li>
+                    <li class="nav-item">My List</li>
+                    <li class="nav-item">Browse by Languages</li>
+                </ul>
+            </div>
+            <!-- <div class="right-cont">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 11C13 13.7614 10.7614 16 8 16C5.23858 16 3 13.7614 3 11C3 8.23858 5.23858 6 8 6C10.7614 6 13 8.23858 13 11ZM14.0425 16.2431C12.5758 17.932 10.4126 19 8 19C3.58172 19 0 15.4183 0 11C0 6.58172 3.58172 3 8 3C12.4183 3 16 6.58172 16 11C16 11.9287 15.8417 12.8205 15.5507 13.6497L24.2533 18.7028L22.7468 21.2972L14.0425 16.2431Z" fill="currentColor"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 4.57092C16.3922 5.05624 18.9998 7.9736 18.9998 11.5V15.2538C20.0486 15.3307 21.0848 15.4245 22.107 15.5347L21.8926 17.5232C18.7219 17.1813 15.409 17 11.9998 17C8.59056 17 5.27764 17.1813 2.10699 17.5232L1.89258 15.5347C2.91473 15.4245 3.95095 15.3307 4.99978 15.2538V11.5C4.99978 7.97345 7.6076 5.05599 11 4.57086V2H13V4.57092ZM8.62568 19.3712C8.6621 20.5173 10.1509 22 11.9993 22C13.8477 22 15.3365 20.5173 15.373 19.3712C15.38 19.1489 15.1756 19 14.9531 19H9.04555C8.82308 19 8.61862 19.1489 8.62568 19.3712Z" fill="currentColor"></path></svg>
+                <img decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAjVBMVEUNfoD///8Ae30AeHoAdXcAdnl6q6z2+/vo8vLx+Ph1sbIAdHfu9PQHfH8AgYPl8vI7kJKRvr+hx8jO4+PJ3d4eioxppqja6eni7OxdoqRSnqC42dqXxsaw09Ntra8ph4l/uLmGtrdapqeozc02lZdMmZuuzM3A2NnU4+SRvL2fy8xSmZpEkZO+1NV1qaqNxlfBAAAEIElEQVR4nO3bXXeiOhQGYNgJg6AiiIiggtbP0U7//8+beJzjoCYtSAQ7630uetVmvZuEEOnWMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvjNi3Ii8rkWtpuiLGCyKxA/dOchIZ3FPmGc5tVckGf4iPMUIA9/QGYNoEZr/c4Y+0zh2FSydX2KY00RfDDJ2ZlEnbadEa+EUYziBrlkkPzav2W4rJc5vYphzTQPTbYGixBZmkc/uYphDPTG29yObHb/p7YYSSQxzqSEGJbZs6FX9kavJQ1mMQV6/RDaVjWzaDU8i/ZDGMBf116knH1nH0FUoLrQ5qR2D3hQVhl0dwUvjihh2VHctsZVqaC3By6K1IoaZ1a2Qj5QXr68leznKpWQu6y5Tfv8wbKXC7HkV7hQjN1xh+rQKmeQkca6w0acFRaoKa9+HyosXci3Ry7Kk5w4de6lhKCps+nl4d+w+q/88VD0uHA3HpSpoLJ/ErH6FdHRkIw+b3GdOPOljK841DE2yvWaiYflXjLGWTKLtaolB9w8Me938uxq+uC8x0LMZUHRboqNh9T+QY3lb4ErXrUL92dXli6N23tPwt04xRsfV+MCi5O+Hl8Gy4W20EMMvXOrhRut1Jsrd+WQy2c82Wt9TVo7hpatY5FhlhvbXtsQsLmh/11w9x0vEAAAAAAAAAAAAAAAAgH8KMc/4l/8HRXyz3e2GLf07uqD/nO+fkLHZ2eeWgnZnkVi0ifSvJOLJpUXKTtoskfxdp9fZb7TWSETprtA50XCD3RWW/Qky19dUQCx3b7r2PV1jV+dd+sU6M88iDc0v1I2Cu5bextuzLqyrdrGgdhOHmL6xrGM/0hP3EfurIM42YY/fkMRYOpR2ZDvt3Yfe/iaLPVn4j7TBiL0l9xexooe24UbXIkvWL7n7uSGryh1JjEfjofQrQefV/7T8X2OuNFIvnq3FmisxlyR+zYoWo4Fi9oRB1kAhapbyytvT4OM9OpUpr1PUZhnR8SOYqosT4sxq99AmHvifxBuEo2G2iXiXc1bEeddYp8vtaN/55K9P9bntH0qJZV+kFHrh9HAI3P8sDodVqL7nCuzwrc0Wwr9YFEjbxGuy5+MWv1F+jcgPPr2XHtAL3l9j/v4Qny+CUguvHGfnvt7n3r44LSu+IFnVIDgarW8vUsSjmepQUnr24iB65dZZYt54NXi8vtEw9V64vDOx/fmHuPre6vSmWa6/r/s5xDls7W7D8lU64fZn6vFvUt4ZMcrfk2D69VnAmQbj95xefm3KiHMn73prN/g1CuO441zm1HacQRyHo19Btva6vMz5/JWd6jQ83z8mx48fZ8kx2fi5R9++tiKiPl1rOxEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALy43/ipMgzSotaqAAAAAElFTkSuQmCC" alt="no">
+            </div> -->
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- banner section -->
+    <div class="banner-section" id="banner-section">
+        <div class="banner_fadeBottom">
+            
+        </div>
+    </div>
+    <!-- banner section end -->
+
+    <!-- movies sections -->
+     <div class="movies-cont container" id="movies-cont">
+    <section class="row">
+        <h2>Popular on Netflix</h2>
+        
+        <div id="movie-details-section" style="display: none; padding: 20px; background-color: #141414;">
+            <div class="video-player" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe id="movie-trailer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                        src="https://in.video.search.yahoo.com/video/play;_ylt=AwrKADEag95oFewO9ZgM9olQ;_ylu=c2VjA3NyBHNsawN2aWQEZ3BvcwMy?p=avengers+movie+scenes&vid=7eb03e90f682821cd5d3f30073247005&turl=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOVP.jBeHcBDIFRNGFm57OvGkdAHgFo%3Fpid%3DApi%26h%3D360%26w%3D480%26c%3D7%26rs%3D1&rurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJcgJvJqCdrw&tit=Iron+Man+%26+Captain+America+vs+Loki+-+Fight+Scene+-+The+%3Cb%3EAvengers%3C%2Fb%3E+%282012%29+%3Cb%3EMovie%3C%2Fb%3E+Clip+HD&c=1&sigr=NGO3eEPbt8ol&sigt=lHOQANi2y9IU&sigi=8qmqJS52iaDd&fr2=p%3As%2Cv%3Av&h=360&w=480&l=222&age=1498233508&fr=yhs-sz-002&hsimp=yhs-002&hspart=sz&type=type80160-1696995018&param1=2059679652&tt=b" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            
+            <div class="movie-content" style="color: white; padding-top: 15px;">
+                <h1 id="movie-title"></h1>
+                <p id="movie-description">Movie description goes here...</p>
+                <div id="movie-metadata">
+                    <p><strong>Cast:</strong> </p>
+                    <p><strong>Rating:</strong> </p>
+                </div>
+            </div>
+        </div>
+        <div class="posters">
+            <img class="poster" src="img/avater.jpeg" alt="The Road Trude" data-title="The Road Trude" data-video-url="https://www.youtube.com/embed/a8GxK8g1k84?autoplay=1" data-description="A captivating story about a journey on a mysterious road.">
+            <img class="poster" src="img/dark.jpeg" alt="Wynonna Earp" data-title="Wynonna Earp" data-video-url="https://www.youtube.com/embed/9Bv5mtR0S_s?autoplay=1" data-description="A thrilling supernatural western series.">
+            <img class="poster" src="img/happiness.jpeg" alt="The Ballad of Hugo Sanchez" data-title="The Ballad of Hugo Sanchez" data-video-url="https://www.youtube.com/embed/Z0WjBf98c8c?autoplay=1" data-description="A fun and musical journey of a young man.">
+            <img class="poster" src="img/joker.jpeg" alt="Grey's Anatomy" data-title="Grey's Anatomy" data-video-url="https://www.youtube.com/embed/j_8o2kG2C1Y?autoplay=1" data-description="The dark and gripping origin story of a comic book villain.">
+            <img class="poster" src="img/inception.jpeg" alt="Step Up 2" data-title="Step Up 2" data-video-url="https://www.youtube.com/embed/Yo1Nl-iWw0k?autoplay=1" data-description="A mind-bending sci-fi action thriller.">
+            <img class="poster" src="img/lala land.jpeg" alt="Liquid Science" data-title="Liquid Science" data-video-url="https://www.youtube.com/embed/0pdqf4P9MB8?autoplay=1" data-description="A beautiful musical romance set in Los Angeles.">
+        </div>
+    </section>
+</div>
+     <!--  -->
+    <div class="movies-cont container" id="movies-cont">
+        <section class="row">
+    <h2>Popular on Netflix</h2>
+    <div class="posters">
+        <img class="poster" src="img/avater.jpeg" alt="The Road Trude" data-title="The Road Trude">
+        <img class="poster" src="img/dark.jpeg" alt="Wynonna Earp" data-title="Wynonna Earp">
+        <img class="poster" src="img/happiness.jpeg" alt="The Ballad of Hugo Sanchez" data-title="The Ballad of Hugo Sanchez">
+        <img class="poster" src="img/joker.jpeg" alt="Grey's Anatomy" data-title="Grey's Anatomy">
+        <img class="poster" src="img/inception.jpeg" alt="Step Up 2" data-title="Step Up 2">
+        <img class="poster" src="img/lala land.jpeg" alt="Liquid Science" data-title="Liquid Science">
+        </div>
+</section>
+
+<section class="row">
+    <h2>English Movies</h2>
+    <div class="posters">
+        <img class="poster" src="img/myfault.jpeg" alt="The Ranch" data-title="The Ranch">
+        <img class="poster" src="img/munjya.jpeg" alt="The Kissing Booth" data-title="The Kissing Booth">
+        <img class="poster" src="img/poter.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/professor.jpeg" alt="Night Shift" data-title="Night Shift">
+        </div>
+</section>
+
+<section class="row">
+    <h2>Series</h2>
+    <div class="posters">
+        <img class="poster" src="img/eng.jpeg" alt="The Ranch" data-title="The Ranch">
+        <img class="poster" src="img/eng1.jpeg" alt="The Kissing Booth" data-title="The Kissing Booth">
+        <img class="poster" src="img/eng2.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/eng3.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/eng4.jpeg" alt="Night Shift" data-title="Night Shift">
+        </div>
+</section>
+
+<section class="row">
+    <h2>Kids</h2>
+    <div class="posters">
+        <img class="poster" src="img/kid.jpeg" alt="The Ranch" data-title="The Ranch">
+        <img class="poster" src="img/kid1.jpeg" alt="The Kissing Booth" data-title="The Kissing Booth">
+        <img class="poster" src="img/kid2.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/kid3.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/kid4.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/kid5.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/kid6.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/kid7.jpeg" alt="Night Shift" data-title="Night Shift">
+        </div>
+</section>
+
+<section class="row">
+    <h2>korean Movies</h2>
+    <div class="posters">
+        <img class="poster" src="img/ko1.jpeg" alt="The Ranch" data-title="The Ranch">
+        <img class="poster" src="img/ko5.jpeg" alt="The Kissing Booth" data-title="The Kissing Booth">
+        <img class="poster" src="img/ko4.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/ko5.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/ko3.jpeg" alt="Night Shift" data-title="Night Shift">
+        </div>
+</section>
+
+<section class="row">
+    <h2>Most Watched Movies</h2>
+    <div class="posters">
+        <img class="poster" src="img/kose.jpeg" alt="The Ranch" data-title="The Ranch">
+        <img class="poster" src="img/dark.jpeg" alt="The Kissing Booth" data-title="The Kissing Booth">
+        <img class="poster" src="img/12thfail.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/83.jpeg" alt="Night Shift" data-title="Night Shift">
+        <img class="poster" src="img/amaran.jpeg" alt="Night Shift" data-title="Night Shift">
+        </div>
+</section>
+    </div>
+    <script src="flix.js">
+    <!-- movies sections end -->
+// Wait until the entire HTML document is loaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    // 1. Get all the movie poster images
+    const posters = document.querySelectorAll('.poster');
+    
+    // 2. Get the main details section and its sub-elements
+    const detailsSection = document.getElementById('movie-details-section');
+    const trailerFrame = document.getElementById('movie-trailer');
+    const movieTitle = document.getElementById('movie-title');
+    const movieDescription = document.getElementById('movie-description');
+    
+    // 3. Loop through each poster and add a click event listener
+    posters.forEach(poster => {
+        poster.addEventListener('click', () => {
+            // A. Get data from the clicked image using the 'data-...' attributes
+            const title = poster.getAttribute('data-title');
+            const videoUrl = poster.getAttribute('data-video-url');
+            const description = poster.getAttribute('data-description');
+            
+            // B. Update the content in the details section
+            movieTitle.textContent = title;
+            movieDescription.textContent = description;
+            
+            // C. Update the video source (This starts the video playing automatically due to the '?autoplay=1' in the URL)
+            trailerFrame.src = videoUrl;
+            
+            // D. Make the entire details section visible (if it was hidden)
+            detailsSection.style.display = 'block';
+            
+            // Optional: Scroll to the details section for a better user experience
+            detailsSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+</script>
+
+</body>
+</html>
